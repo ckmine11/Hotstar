@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotstar-deployment
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: hotstar
+  template:
+    metadata:
+      labels:
+        app: hotstar
+    spec:
+      containers:
+      - name: hotstar
+        image: replace
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000  # Port your application listens on
+      imagePullSecrets:
+           - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotstar-service
+spec:
+  type: NodePort
+  selector:
+    app: hotstar
+  ports:
+    - protocol: TCP
+      port: 3000  # Port exposed by the service externally (outside the cluster)
+      targetPort: 3000  # Port your application listens on inside the pods
+      nodePort: 30020
+      
