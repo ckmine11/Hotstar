@@ -31,7 +31,7 @@ pipeline {
               steps {
         withSonarQubeEnv('sonar') {
           
-       sh "sudo /usr/local/bin/sonar-scanner -Dsonar.projectName=hotstar -Dsonar.projectKey=hotstar  -Dsonar.host.url=http://master.dns.com:9001 -Dsonar.login=sqp_e708fbb10fb1e3284045162b9910475e9fe720a1"
+       sh "sudo /usr/local/bin/sonar-scanner -Dsonar.projectName=hotstar -Dsonar.projectKey=hotstar  -Dsonar.host.url=http://master.dns.com:9001 -Dsonar.login=0c4707486f97ee8a5dc96b6bbdb046cb4920e819"
         }
 		      timeout(time: 2, unit: 'HOURS') {
            script {
