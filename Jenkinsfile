@@ -37,17 +37,6 @@ pipeline {
         }
 		
 
-         stage('Synk-Test') {
-      steps {
-	      snykSecurity failOnError: false, failOnIssues: false, projectName: 'hotstar', snykInstallation: 'snyk', snykTokenId: 'snyk'
-       // echo 'Testing...'
-      //  snykSecurity(
-       //  snykInstallation: 'snyk',
-        // snykTokenId: 'bbe4c279-8455-48f7-aeaa-901144bd2a86'
-          // place other parameters here
-      //  )
-      }
-   }
 		stage ('Vulnerability Scan - Docker ') {
               steps {
                   
