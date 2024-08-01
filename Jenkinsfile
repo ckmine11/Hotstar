@@ -27,19 +27,7 @@ pipeline {
               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ckmine11/Hotstar.git']]])
          }
         }
-       stage ('Code Quality scan') {
-              steps {
-        withSonarQubeEnv('sonar') {
-          
-       sh "sudo /usr/local/bin/sonar-scanner -Dsonar.projectName=hotstar -Dsonar.projectKey=hotstar  -Dsonar.host.url=http://master.dns.com:9001 -Dsonar.login=0c4707486f97ee8a5dc96b6bbdb046cb4920e819"
-        }
-		      timeout(time: 2, unit: 'HOURS') {
-           script {
-             waitForQualityGate abortPipeline: true
-           }
-         }
-   }
-              }
+      
 			  
 			  
 		 stage('Install Dependencies') {
