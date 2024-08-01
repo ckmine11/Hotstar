@@ -7,7 +7,7 @@ pipeline {
         deploymentName = "hotstar-deployment"
     containerName = "hotstar-app-server"
     serviceName = "hotstar-service"
-    imageName = "harbor.cluster.com/hotstar/$JOB_NAME:v1.$BUILD_ID"
+    imageName = "harbor.cluster.com/hotstar-app/$JOB_NAME:v1.$BUILD_ID"
      applicationURL="http://192.168.163.101"
     applicationURI="epps-smartERP/"
     
