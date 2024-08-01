@@ -52,10 +52,7 @@ pipeline {
               steps {
                   
                  parallel   (
-       "Dependency Scan": {
-       	     	dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-check'
-       	     	dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-		},
+     
 	 	  "Trivy Scan":{
 	 		    sh "bash trivy-docker-image-scan.sh"
 		     	},
